@@ -1,31 +1,25 @@
-import math
+import pdaj_project_lib as ppl
 
 
-def generate_coords(n, m):
+def generate_coord_pairs(n, m):
     ret_list = []
     for i in range(n):
         for j in range(m):
             ret_list.append((i, j))
     return ret_list
 
-def calculate_distance(coords1, coords2):
-    x1, y1 = coords1
-    x2, y2 = coords2
-    distance =  math.sqrt(math.pow(x1 - x2, 2) + math.pow(y1 - y2, 2))
-    return distance
+def get_all_distances(coord_pair, points):
+    ret_list = []
+    for ind in range(len(points)):
+        ret_list.append((ppl.calculate_distance(coord_pair, points[ind]), ind))
+    return ret_list
 
 def get_closest_special(n, m, points):
-    coords = generate_coords(n, m)
+    coord_pairs = generate_coord_pairs(n, m)
     ret_list = []
-    for coord in coords:
-        min_distance = calculate_distance(coord, points[0])
-        closest_filed = 0
-        for i in range(1, len(points)):
-            distance = calculate_distance(coord, points[i])
-            if distance < min_distance:
-                min_distance = distance
-                closest_filed = i
-        ret_list.append(closest_filed)
+    for coord_pair in coord_pairs:
+        distances = get_all_distances(coord_pair, points)
+        ret_list.append(min(distances)[1])
     return ret_list
 
 def main():
