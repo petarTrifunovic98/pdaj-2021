@@ -16,7 +16,7 @@ def _get_closest_special_gen(coord_pairs, points):
 def get_closest_special(n, m, points):
     coord_pairs = generate_coord_pairs(n, m)
     res = _get_closest_special_gen(coord_pairs, points)
-    return res
+    return [r for r in res]
     
 
 def main():

@@ -1,4 +1,4 @@
-import pdaj_project_lib as ppl
+from . import pdaj_project_lib as ppl
 
 def generate_coord_pairs(n, m):
     ret = [(i, j) for i in range(n) for j in range(m)]
