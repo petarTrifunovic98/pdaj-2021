@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class Table(models.Model):
+    result = models.JSONField()
+    time_in_s = models.FloatField(null=False)
+    max_memory_in_MB = models.FloatField(null=False)
+

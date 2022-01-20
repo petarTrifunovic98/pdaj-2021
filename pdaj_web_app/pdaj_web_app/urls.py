@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from table.views import get_closest_special_sequential
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('calculation/sequential/', get_closest_special_sequential),
 ]
