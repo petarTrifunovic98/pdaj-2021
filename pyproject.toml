@@ -11,6 +11,8 @@ djangorestframework = "^3.12.4"
 markdown = "^3.*"
 django-filter = "^21.*"
 psycopg2-binary = "^2.9.*"
+requests = "2.27.1"
+matplotlib = "3.4.0"
 
 [tool.poetry.dev-dependencies]
 
