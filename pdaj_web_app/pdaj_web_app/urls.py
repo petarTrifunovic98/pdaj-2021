@@ -20,7 +20,7 @@ from table.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('calculation/sequential', get_closest_special_sequential),
-    path('calculation/list-comprehension/', get_closest_special_list_comprehension),
-    path('calculation/generator/', get_closest_special_generator),
-    path('calculation/multiprocessing/', get_closest_special_multiprocessing)
+    path('calculation/list-comprehension', get_closest_special_list_comprehension),
+    path('calculation/generator', get_closest_special_generator),
+    path('calculation/multiprocessing', get_closest_special_multiprocessing)
 ]
