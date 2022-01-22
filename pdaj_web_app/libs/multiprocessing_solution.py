@@ -15,8 +15,8 @@ def prepare_args(coord_pairs, points):
     for coord_pair in coord_pairs:
         yield coord_pair, points
 
-def get_chunksize(coord_pairs_num):
-    return coord_pairs_num // 10
+def get_chunksize(n, m):
+    return n
     
 def _worker(args):
     coord_pair, points = args
@@ -24,11 +24,11 @@ def _worker(args):
 
 def get_closest_special(n, m, points):
     coord_pairs = generate_coord_pairs(n, m)
-    with mp.Pool() as pool:
+    with mp.Pool(8) as pool:
         res = pool.imap(
             _worker,
             prepare_args(coord_pairs, points),
-            chunksize=get_chunksize(n*m)
+            chunksize=get_chunksize(n, m)
         )
         return [r for r in res]
 
@@ -36,9 +36,6 @@ def get_closest_special(n, m, points):
 def main():
     res = get_closest_special(10, 10, [(1, 3), (3, 2), (6, 8), (9, 6), (5, 5)])
     print(res)
-    # for i in range(100):
-    #     print(next(res))
-    #print([r for r in res])
 
 if __name__ == "__main__":
     main()
