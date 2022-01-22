@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+
+  web:
+    build: .
+    container_name: pdaj_web_app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SECRET_KEY=#django-insecure-w=$$yys40wax+5*g774m+j@@w1cf3d10tgu530(-*k=8d&!=22q
